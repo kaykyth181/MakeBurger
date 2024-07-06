@@ -41,7 +41,7 @@
                             <img :src="maionese">
                             <img :src="hamburguer">
                             <img :src="pao[1]">
-                            
+
 
                         </div>
                     </div>
@@ -75,39 +75,69 @@
 
                         </div>
                     </div>
-                </div> <!-- fim tipo pão -->
+                    <!-- fim tipo pão -->
+
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Salada
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="alface"
+                                            v-model="inputSalada">
+
+                                        <label class="form-check-label"> Alface </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-
         </div>
-    </div>
 
-    <!-- instancia VUE -->
+        <!-- instancia VUE -->
 
-    <script>
-        const vm = new Vue({
-            el: '#app',
+        <script>
+            const vm = new Vue({
+                el: '#app',
 
-            data: { // atributos // propriedades
-                inputTipoPao: '',
-            },
+                data: { // atributos // propriedades
+                    inputTipoPao: '',
+                    inputSalada: [],
+                },
 
-            computed: { // propriedades computadas // reativos
-                pao() {
-                    switch(this.inputTipoPao) {
-                        case 'gergelim': 
-                            return [ 'imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
+                computed: { // propriedades computadas // reativos
+                    pao() {
+                        switch (this.inputTipoPao) {
+                            case 'gergelim':
+                                return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
 
-                        case 'australiano': 
-                            return [ 'imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
+                            case 'australiano':
+                                return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
 
-                        default: 
-                            return['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
-                        
+                            default:
+                                return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
+
+                        }
+                    },
+
+                    alface(){
+                        if(this.inputSalada.includes('alface')){
+                            return 'imagens/alface.png'
+                        }
+
+                        return 'imagens/padrao/alface.png'
                     }
                 },
-            },
-        })
-    </script>
+            })
+        </script>
 
 </body>
 
