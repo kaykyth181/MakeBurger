@@ -15,6 +15,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
+    <link rel="stylesheet" href="styles.css">
+
+
 
 
 
@@ -41,6 +44,7 @@
                             <img :src="maionese">
                             <img :src="hamburguer">
                             <img :src="pao[1]">
+                            
 
 
                         </div>
@@ -95,7 +99,49 @@
                                 </div>
                             </div>
                         </div>
+                    </div> <!-- fim salada -->
+
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+
+                                <div class="card-header">
+                                    Molhos
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="ketchup"
+                                            v-model="inputMolhos">
+
+                                        <label class="form-check-label"> Ketchup </label>
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="mostarda"
+                                        v-model="inputMolhos">
+
+                                        <label class="form-check-label"> Mostarda </label>
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" value="maionese"
+                                        v-model="inputMolhos">
+
+                                        <label class="form-check-label"> Maionese </label>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
                     </div>
+                    
+
+
+
+
 
                 </div>
 
@@ -111,6 +157,7 @@
                 data: { // atributos // propriedades
                     inputTipoPao: '',
                     inputSalada: [],
+                    inputMolhos:[],
                 },
 
                 computed: { // propriedades computadas // reativos
@@ -128,13 +175,32 @@
                         }
                     },
 
-                    alface(){
-                        if(this.inputSalada.includes('alface')){
+                    alface() {
+                        if (this.inputSalada.includes('alface')) {
                             return 'imagens/alface.png'
                         }
 
                         return 'imagens/padrao/alface.png'
-                    }
+                    },
+                    ketchup(){
+                        if(this.inputMolhos.includes('ketchup')){
+                            return 'imagens/ketchup.png'
+                        }
+                        return 'imagens/padrao/molho.png'
+                    },
+                    mostarda(){
+                        if(this.inputMolhos.includes('mostarda')){
+                            return 'imagens/mostarda.png'
+                        }
+                        return 'imagens/padrao/molho.png'
+                    },
+                    maionese(){
+                        if(this.inputMolhos.includes('maionese')){
+                            return 'imagens/maionese.png'
+                        }
+                        return 'imagens/padrao/molho.png'
+                    },
+
                 },
             })
         </script>
